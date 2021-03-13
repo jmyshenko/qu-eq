@@ -7,15 +7,29 @@
     <title>Калькулятор квадратных уравнений</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Калькулятор квадратных уравнений</h1>
+<body> 
+    <h1>Минималистичный калькулятор квадратных уравнений</h1>
+    <main>
+        <div class="container">
+            <h2>Введи приведённое квадратное уравнение</h2>
+            <div class="block" class="math">
+                <span class="param"><input type="number" placeholder="a"></span>
+                x<sup>2</sup> +
+                <span class="param"><input type="number" placeholder="b"></span>
+                x +
+                <span class="param"><input type="number" placeholder="c"></span>
+                = 0
+            </div>
+            <button class="calc" id="calc-discriminant">Решить уравнение через дискриминант</button>
+            <button class="calc" id="calc-viet">Решить уравнение теоремой Виета</button>
+        </div>
+        <div class="container">
+            <h2>Решение</h2>
+            <block class="block" id="answer">Уравнение не решено.</block>
+        </div>
+    </main>
     <hr>
-    <h2>Введи приведённое уравнение <button id="show-template">поле ввода</button></h2>
-    <div class="block"><i>
-        <input id="a-param" type="number"></input>x<sup>2</sup>+<input id="b-param" type="number">x</input>+<input id="c-param" type="number"></input>=0
-    </i></div>
-    <div class="block" id="result"><strong>Результат: </strong><div id="value">Не вычислен</div></div>
-    <button id="calc">Вычислить</div>
+    <p id="footer">Это говно вряд-ли работает правильно...</p>
     <script src="index.js"></script>
 </body>
 </html>

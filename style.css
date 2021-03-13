@@ -1,49 +1,56 @@
-h1, h2 {
-    margin: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
 }
 
-h2 > button {
-    margin-left: 10px;
+h1, h2 {
+    font-family: 'Montserrat';
+}
+
+h2 {
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.container {
+    padding: 20px 10px;
+    margin: 10px 0;
+    background-color: rgb(197, 197, 197);
+    border: 1px solid rgb(100, 100, 100);
+}
+
+
+input {
+    width: 50px;
+    margin: 0 5px;
 }
 
 .block {
-    width: 80%;
-    margin: 5px 0;
-    padding: 15px;
-    background-color: rgb(219, 219, 219);
-    border: 2px solid rgb(131, 131, 131);
-}
-
-ul {
-    display: flex;
-    flex-direction: column;
-}
-
-ul > li {
-    list-style-type: none;
-    font-style: italic;
-}
-
-input {
-    width: 35px;    
-    margin: 3px;
-    font-style: italic;
-    text-align: center;
-}
-
-#calc {
+    display: block;
+    padding: 15px 5px;
     margin: 10px 0;
-    width: 100px;
-    height: 30px; 
+    background-color: rgba(0, 0, 0, .2);
+    border: 1px solid rgb(100, 100, 100);
+    font-size: 1.2em;
 }
 
-#value {
-    background-color: rgb(131, 131, 131);
-    margin-top: 10px;   
-    padding: 10px;
-    border-radius: 10px;
-    width: 80%;
-    line-height: 2em;
-    font-style: italic;
-    color: white;
+.calc {
+    background-color: rgba(0, 0, 0, .2);
+    border: 1px solid rgb(100, 100, 100);   
+    padding: 7px;
+    font-size: 1.2em;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+#footer {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, .1);
+    transition: color .5s;
+}
+
+#footer:active, #footer:hover {
+    color: rgba(0, 0, 0, .6);
 }

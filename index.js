@@ -1,58 +1,54 @@
-const showTemplateEl = document.getElementById('show-template');
-const calcEl = document.getElementById('calc');
-const valueEl = document.getElementById('value');
-const getParam = i => document.getElementById(`${i}-param`);
+const parameters = document.getElementsByClassName('param');
+const calcDiscriminant = document.getElementById('calc-discriminant');
+const calcViet = document.getElementById('calc-viet');
+const answer = document.getElementById('answer');
 
-function showTemplate() {
-    showTemplateEl.innerText = 'поле ввода';
 
-    ['a', 'b', 'c'].forEach(paramName => {
-        const param = getParam(paramName);
-        param.type = 'text'
-        param.value = paramName;
-        param.disabled = true;
-    });
+function getParameters() {
+    const getParameterValue = item => Number.parseFloat(parameters.item(item).querySelector('input').value);
+    
+    const a = getParameterValue(0);
+    const b = getParameterValue(1);
+    const c = getParameterValue(2);
+    
+    if (isNaN(a)) return alert('Укажи первый параметр уравнения.');
+    if (isNaN(b)) return alert('Укажи второй параметр уравнения.');
+    if (isNaN(c)) return alert('Укажи третий параметр уравнения.');
+
+    return [ a, b, c ];
 }
 
-function hideTemplate() {
-    showTemplateEl.innerText = 'показать шаблон';
 
-    ['a', 'b', 'c'].forEach(paramName => {
-        const param = getParam(paramName);
-        param.type = 'number'
-        param.value = 0;
-        param.disabled = false;
-    });
-}
+calcDiscriminant.onclick = function() {
+    const [ paramA, paramB, paramC ] = getParameters();
+    const discriminant = (paramB * paramB) - ((paramA * paramC) * 4);
 
-let templateShowed = false;
+    answer.innerHTML = `Дискриминант уравнения равен ${discriminant}.</br>`;
 
-showTemplateEl.onclick = () => {
-    if (templateShowed) {
-        templateShowed = false;
-        hideTemplate();
+    if (discriminant > 0) {
+        const root1 = -paramB + Math.sqrt(discriminant);
+        const root2 = -paramB - Math.sqrt(discriminant);
+
+        answer.innerHTML += `Поскольку дискриминант больше единицы, уравнения имеет два действительных корня:</br>`;
+        answer.innerHTML += `<div class="block" class="math">x<sub>1</sub> = ${root1.toFixed(2)}</div>`;
+        answer.innerHTML += `<div class="block" class="math">x<sub>2</sub> = ${root2.toFixed(2)}</div>`;
+    } else if (discriminant == 0) {
+        const root = -paramB / (paramA * 2);
+        
+        answer.innerHTML += `Поскольку дискриминант равен нулю, у уравнения есть единственный действительный корень:</br>`;
+        answer.innerHTML += `<div class="block" class="math">x = ${root.toFixed(2)}</div>`
     } else {
-        templateShowed = true;
-        showTemplate();
+        answer.innerHTML += `Поскольку дискриминант меньше нуля, уравнение не имеет действительных корней.`;
     }
 }
 
-calcEl.onclick = function() {
-    const a = Number(getParam('a').value);
-    const b = Number(getParam('b').value);
-    const c = Number(getParam('c').value);
+calcViet.onclick = function() {
+    let [ paramA, paramB, paramC ] = getParameters();
+    // parameters.item(0).querySelector('input').value = 1;
+    const rootsSum = -(paramA / paramB);
+    const rootsComp = paramC / paramA;
 
-    if (!a || !b || !c) return alert('Введи все переменные');
-    if (a < -1000 || a > 1000 || b < -1000 || b > 1000 || c < -1000 || c > 1000) return alert('Введи числа поменьше')
-
-    const D = (b * b) - ((a * c) * 4);
-
-    if (D > 0) {
-        valueEl.innerHTML = `x<sub>1</sub> = ${(-b + Math.sqrt(D)).toFixed(2)};<br>` 
-                          + `x<sub>2</sub> = ${(-b - Math.sqrt(D)).toFixed(2)};`
-    } else if (D == 0) {
-        valueEl.innerHTML = `x = ${-b / (a * 2)};`;
-    } else if (D < 0) {
-        valueEl.innerHTML = `Нет действительных корней`;
-    }
+    answer.innerHTML = `По теореме Виета, сумма корней уравнения равна отрицательному частному a на b, а произведение — частному c на a. Тогда:</br>`;
+    answer.innerHTML += `x<sub>1</sub> + x<sub>2</sub> = ${rootsSum.toFixed(2)}</br>`;
+    answer.innerHTML += `x<sub>1</sub>x<sub>2</sub> = ${rootsComp.toFixed(2)}`;
 }
