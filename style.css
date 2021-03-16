@@ -1,49 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
-
 body {
-    font-family: 'Lato', sans-serif;
+    background-color: rgba(0, 0, 0, .15);    
 }
 
-h1, h2 {
-    font-family: 'Montserrat';
-}
-
-h2 {
+* {
+    margin: 0;
     padding: 0;
-    margin: 0 0 10px 0;
 }
 
-input {
-    width: 50px;
-    margin: 0 5px;
+main {
+    padding: 10px;
+}
+
+body, input, button {
+    font-family: 'Open Sans';
+}
+
+input[type="text"] {
+    border: 1.5px solid rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, .1);
+    color: black;
+    width: 4.5em;
+}
+
+input::placeholder {
+    color: black;
+    padding: 5px
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Condensed';
+    margin: 5px 0;  
 }
 
 .block {
-    display: block;
-    padding: 15px 5px;
-    margin: 10px 0;
-    background-color: rgba(0, 0, 0, .2);
-    border: 1px solid rgb(100, 100, 100);
-    font-size: 1.2em;
+    border: 3px solid rgba(0, 0, 0, 0.055);
+    background-color: rgba(0, 0, 0, .1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#calc-header {
+    margin-top: 5px;
 }
 
 .calc {
-    background-color: rgba(0, 0, 0, .2);
-    border: 1px solid rgb(100, 100, 100);   
-    padding: 7px;
+    border: 3px solid rgba(0, 0, 0, 0.055);
+    background-color: rgba(0, 0, 0, .1);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.1em;
     margin: 5px 0;
-    font-size: 1.2em;
-    font-family: 'Montserrat';
-    font-weight: bold;
 }
 
-#footer {
-    font-size: 1.2em;
-    color: rgba(0, 0, 0, .1);
-    transition: color .5s;
+ul {
+    padding: 0 25px;
+    list-style-type: square;
 }
 
-#footer:active, #footer:hover {
-    color: rgba(0, 0, 0, .6);
+.radio {
+    position: absolute;
+    margin-top: 8px;
+    width: 15px;
+    height: 15px;   
+    background-color: #fff;
+        /* top: 5px;
+        left: 5px; */
 }

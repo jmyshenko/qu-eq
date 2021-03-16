@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор квадратных уравнений</title>
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    
+    <title>Калькулятор квадратных уравнений</title>
 </head>
-<body> 
-    <h1>Минималистичный калькулятор квадратных уравнений</h1>
+<body>
     <main>
+        <h1>Калькулятор квадратных уравнений</h1>
         <div class="block">
-            <h2>Введи приведённое квадратное уравнение</h2>
-            <div class="block" class="math">
-                <span class="param"><input type="number" placeholder="a"></span>
-                x<sup>2</sup> +
-                <span class="param"><input type="number" placeholder="b"></span>
-                x +
-                <span class="param"><input type="number" placeholder="c"></span>
-                = 0
+            <h2>Введи сюда параметры уравнения</h2>
+            <div class="block" id="parameters">
+                <input type="text" class="param" id="param-a" placeholder="a"> x<sup>2</sup> +  
+                <input type="text" class="param" id="param-b" placeholder="b"> x +
+                <input type="text" class="param" id="param-c" placeholder="c"> = 0
             </div>
-            <button class="calc" id="calc-discriminant">Решить уравнение через дискриминант</button>
-            <button class="calc" id="calc-viet">Решить уравнение теоремой Виета</button>
-        </div>
-        <div class="block">
-            <h2>Решение</h2>
-            <block class="block" id="answer">Уравнение не решено.</block>
+            <h2 id="calc-header">Решить уравнение</h2>
+
+            <div class="block">
+                <button class="calc" id="calc-discriminant">Через дискриминант</button>
+                <button class="calc" id="calc-viet">По теореме Виета</button>
+                <h3>Решение</h3>
+                <!-- <div class="block" id="answer">Уравнение ещё не решено!</div> -->
+                <div class="block" id="answer">Уравнение не решено.</div>   
+            </div>
         </div>
     </main>
-    <hr>
+
     <script src="index.js"></script>
 </body>
 </html>
