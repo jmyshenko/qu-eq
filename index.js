@@ -81,9 +81,9 @@ calcViet.onclick = function() {
 
     answer.innerHTML = `
         <h4>Дискриминант, сумма и произведение корней</h4>
-        <ul>${rootsSumAndMultiply}</ul>
+        <div class="block"><ul>${rootsSumAndMultiply}</ul></div>
         <h4>Корни и дискриминант</h4>
-        <ul>${rootsAndDiscriminant}</ul>
+        <div class="block"><ul >${rootsAndDiscriminant}</ul></div>
     `
     answer.innerHTML += `
     <h4>Подсказки</h4>
